@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="css/estilo.css">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">    
+    <title>Black Friday | Landing Page</title>
+</head>
+<body>
+    <div class = "grid-container"> 
+        <div class = "header"> 
+            <div class = "header1">
+                <a href="teste.com"><img src="img/logo.png" alt="some text" width=125 height=65></a>
+            </div> 
+          <div class = "header2"></div> 
+          <div class = "header3"></div> 
+        </div>
+        <div class ="left_space"></div> 
+        <div class ="main"> 
+            <div class ="main1">
+                <h3 class="black">BLACK</h3>
+                <h3 class="friday blink_me">Friday</h3>
+                <div class="contagem">
+                    <div class="numero" id="dia"></div>
+                    <div class="numero" id="hora"></div>
+                    <div class="numero" id="minuto"></div>
+                    <div class="numero" id="segundo"></div>
+                </div>
+            </div> 
+            <div class ="main2">
+                <h3 class="titulo-cadastro">Cadastre-se e receba promoções da<br> BLACK FRIDAY em primeira mão.</h3>
+                <form id="form" class="box">
+                  <input type="text" placeholder="Seu nome" name="nome" id="nome" value="">
+                  <input type="email" placeholder="Seu e-mail" name="email" id="email" value="">
+                  <button id="btn-cadastrar" class="btn-cadastrar">Cadastrar</button>
+                </form>
+          </div> 
+        </div>   
+        <div class ="right_space"></div> 
+        <div class ="footer"> 
+          <span><span>Gabriela - Todos os direitos reservado ©</span></span>
+            <div class="box-cookies hide">
+                <p class="msg-cookies">Utilizamos cookies para garantir que você tenha a melhor experiência em nosso site. Ao continuar navegando você concorda com a nossa <a href="/privacidade-seguranca">Política de Privacidade.</a></p>
+                <button class="btn-cookies">Ok, entendi!</button>
+            </div>
+            <script type="text/javascript">
+            (() => {
+               if (!localStorage.pureJavaScriptCookies) {
+                 document.querySelector(".box-cookies").classList.remove('hide');
+               }
+               
+               const acceptCookies = () => {
+                 document.querySelector(".box-cookies").classList.add('hide');
+                 localStorage.setItem("pureJavaScriptCookies", "accept");
+               };
+               
+               const btnCookies = document.querySelector(".btn-cookies");
+               
+               btnCookies.addEventListener('click', acceptCookies);
+             })();
+            </script>
+        </div> 
+    </div>
+    <script>
+        var target_date = new Date("july 30, 2021").getTime();
+        var dias, horas, minutos, segundos;        
+        var regressiva = document.getElementById("regressiva");
+        setInterval(function () {
+            var current_date = new Date().getTime();
+            var segundos_f = (target_date - current_date) / 1000;
+        dias = parseInt(segundos_f / 86400);
+            segundos_f = segundos_f % 86400;
+            
+            horas = parseInt(segundos_f / 3600);
+            segundos_f = segundos_f % 3600;
+            
+            minutos = parseInt(segundos_f / 60);
+            segundos = parseInt(segundos_f % 60);
+            document.getElementById('dia').innerHTML = dias;
+        document.getElementById('hora').innerHTML = horas;
+        document.getElementById('minuto').innerHTML = minutos;
+        document.getElementById('segundo').innerHTML = segundos;
+        }, 1000);
+    </script>
+</body>
+</html>
